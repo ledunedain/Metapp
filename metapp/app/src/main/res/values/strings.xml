@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Metapp</string>
+    <string name="bienvenido_a_metapp">Bienvenido a Metapp</string>
+    <string name="button">Button</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="name">Name</string>
+    <string name="nombre">Nombre:</string>
+    <string name="contrase_a">Contraseña:</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+</resources>
