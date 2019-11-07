@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/btnIniciar"
+        android:id="@+id/btnRegistrar"
         android:layout_width="158dp"
         android:layout_height="40dp"
         android:layout_marginStart="124dp"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TextConstraseña" />
 
     <Button
-        android:id="@+id/bntVolverMA"
+        android:id="@+id/bntCancelar"
         android:layout_width="158dp"
         android:layout_height="40dp"
         android:layout_marginStart="124dp"
@@ -74,6 +74,6 @@
         android:onClick="OnClick"
         android:text="@string/cancelar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
