@@ -3,8 +3,10 @@ package com.example.metapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,27 +28,23 @@ public class Registro extends AppCompatActivity {
         nombreET =  findViewById(R.id.TextNombreR);
         contrasenaET = findViewById(R.id.TextConstrasenaR);
 
-        nombreET.setText("julian");
-        contrasenaET.setText("1234");
-        Toast toast1 = null;
-
         switch (v.getId()){
             case R.id.btnRegistrar:
 
                 String nombre= nombreET.getText().toString();
                 String contrasena = contrasenaET.getText().toString();
 
-                if (!nombre.isEmpty()&& !contrasena.isEmpty()) {
+                if (!nombre.equals("") && !contrasena.equals("")) {
                     if(Registrar(nombre,contrasena)==true){
-                        toast1 = Toast.makeText(getApplicationContext(), "USUARIO REGISTRADO CON EXITO", Toast.LENGTH_SHORT);
+                        Toast toast1 =Toast.makeText(getApplicationContext(), "USUARIO REGISTRADO CON EXITO", Toast.LENGTH_SHORT);
                         toast1.show();
                         finish();
                     }else{
-                        toast1.makeText(getApplicationContext(),"HUBO UN ERROR EN LA CARGA DE DATOS",Toast.LENGTH_SHORT);
+                        Toast.makeText(getApplicationContext(),"HUBO UN ERROR EN LA CARGA DE DATOS",Toast.LENGTH_SHORT);
                     }
                 }else{
-                    toast1.makeText(getApplicationContext(),"NO SE HA LLENADO ALGUN CAMPO",Toast.LENGTH_SHORT);
-                    toast1.show();
+                    Toast toast2 =Toast.makeText(getApplicationContext(),"NO SE HA LLENADO ALGUN CAMPO",Toast.LENGTH_SHORT);
+                    toast2.show();
                 }
                 break;
             case R.id.bntCancelar: //volver al activity MainActivity (cerrando este activity)
@@ -65,6 +63,7 @@ public class Registro extends AppCompatActivity {
         content.put("contrasena",contrasena);
         BDM.insert("usuario",null,content);
 
+        BDM.close();
 
         return true;
     }

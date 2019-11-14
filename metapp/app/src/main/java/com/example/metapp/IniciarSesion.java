@@ -3,32 +3,57 @@ package com.example.metapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class IniciarSesion extends AppCompatActivity {
+
+    EditText nombreI,contrasenaI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iniciar_sesion);
 
+        nombreI= (EditText) findViewById(R.id.TextNombre);
+        contrasenaI = (EditText) findViewById(R.id.TextConstraseña);
     }
 
     public void OnClick(View v){ //metodo de los botones
+        String nombre = nombreI.getText().toString();
+        String contrasena = contrasenaI.getText().toString();
+
         Intent intent;
 
         switch (v.getId()){
-            case R.id.btnRegistrar:
+            case R.id.btnInicar:
                 /**en este se debe verificar en la base de datos los datos correctos del usuario para que inicie el otro activity, si no permanece
                  * en este hasta que cancele o digite los datos correctos
                  */
-                Toast toast1 =Toast.makeText(getApplicationContext(),"BIENVENIDO USUARIO", Toast.LENGTH_SHORT);
-                toast1.show();
+                if(!nombre.equals("") && !contrasena.equals("") ){
+                    int id_usuario=Consultar(nombre,contrasena);
 
-                intent = new Intent (v.getContext(), MenuUsuario.class);
-                startActivityForResult(intent, 0);
+                    if(id_usuario>=0){
+                        Toast toast1 =Toast.makeText(getApplicationContext(),"BIENVENIDO " + nombre + "!!!!", Toast.LENGTH_SHORT);
+                        toast1.show();
+                        intent = new Intent (v.getContext(), MenuUsuario.class);
+                        startActivityForResult(intent, 0);
+                    }
+                    else{
+                        Toast toast1= Toast.makeText(getApplicationContext(),"NO EXISTE EL USUARIO",Toast.LENGTH_SHORT);
+                        toast1.show();
+                    }
+
+                }else{
+                    Toast toast1= Toast.makeText(getApplicationContext(),"HACE FALTA INFORMACIÓN",Toast.LENGTH_SHORT);
+                    toast1.show();
+                }
+
                 break;
             case R.id.bntCancelar: //volver al activity MainActivity (cerrando este activity)
                 //intent = new Intent (v.getContext(), .class);
@@ -36,5 +61,19 @@ public class IniciarSesion extends AppCompatActivity {
                 finish();
                 break;
         }
+    }
+
+    private int Consultar( String nombreC, String contrasenaC) {
+        AdminSQLiteOpenHelpet admin = new AdminSQLiteOpenHelpet(this, "metappBD",null, 1);
+        SQLiteDatabase MBD = admin.getWritableDatabase();
+
+        Cursor cursor = MBD.rawQuery("SELECT id_usuario FROM usuario WHERE nombre = '" +nombreC+ "' AND contrasena = '" +contrasenaC+"' ;", null);
+
+        if (cursor != null && cursor.moveToFirst()){
+            Log.i("consulta","se encontro un elemento ");
+            String num = cursor.getString(0);
+            return Integer.parseInt(num);
+        }
+        return -1;
     }
 }
