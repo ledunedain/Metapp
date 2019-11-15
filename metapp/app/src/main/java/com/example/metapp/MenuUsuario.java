@@ -8,10 +8,13 @@ import android.view.View;
 
 public class MenuUsuario extends AppCompatActivity {
 
+    int id_usuarioMU;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_usuario);
+        String valor = getIntent().getStringExtra("id_usuario");
     }
     public void OnClick(View v){ //metodo de los botones
         Intent intent;

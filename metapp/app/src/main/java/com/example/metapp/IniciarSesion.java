@@ -42,6 +42,7 @@ public class IniciarSesion extends AppCompatActivity {
                         Toast toast1 =Toast.makeText(getApplicationContext(),"BIENVENIDO " + nombre + "!!!!", Toast.LENGTH_SHORT);
                         toast1.show();
                         intent = new Intent (v.getContext(), MenuUsuario.class);
+                        intent.putExtra("id_usuario",id_usuario);
                         startActivityForResult(intent, 0);
                     }
                     else{
