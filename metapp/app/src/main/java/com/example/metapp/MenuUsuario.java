@@ -14,7 +14,8 @@ public class MenuUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_usuario);
-        String valor = getIntent().getStringExtra("id_usuario");
+        id_usuarioMU = getIntent().getExtras().getInt("id_usuario");
+
     }
     public void OnClick(View v){ //metodo de los botones
         Intent intent;
@@ -22,10 +23,12 @@ public class MenuUsuario extends AppCompatActivity {
         switch (v.getId()){
             case R.id.btn_MisMetapps:
                 intent = new Intent (v.getContext(), MisMetapps.class);
+                intent.putExtra("id_usuario",id_usuarioMU);
                 startActivityForResult(intent, 0);
                 break;
             case R.id.bnt_CrearMetapp:
                 intent = new Intent (v.getContext(), CrearMetapp.class);
+                intent.putExtra("id_usuario",id_usuarioMU);
                 startActivityForResult(intent, 0);
                 break;
         }

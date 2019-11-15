@@ -70,7 +70,7 @@
         android:layout_width="158dp"
         android:layout_height="40dp"
         android:layout_marginStart="124dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="44dp"
         android:onClick="OnClick"
         android:text="@string/cancelar"
         app:layout_constraintStart_toStartOf="parent"

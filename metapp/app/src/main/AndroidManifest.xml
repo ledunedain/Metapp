@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MetappViajes"></activity>
+        <activity android:name=".MetappAlcancia"></activity>
+        <activity android:name=".MetappAhorro" />
+        <activity android:name=".MetappViajes" />
         <activity android:name=".MenuUsuario" />
         <activity android:name=".CrearMetapp" />
         <activity android:name=".MisMetapps" />
