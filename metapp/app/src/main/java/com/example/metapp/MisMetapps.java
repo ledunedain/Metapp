@@ -41,7 +41,7 @@ public class MisMetapps extends AppCompatActivity {
         if(cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 ObjectMetapp iterator =
-                        new ObjectMetapp(cursor.getString(cursor.getColumnIndex("descipcion")),cursor.getString(cursor.getColumnIndex("fecha")));
+                        new ObjectMetapp(cursor.getString(cursor.getColumnIndex("descripcion")),cursor.getString(cursor.getColumnIndex("fecha")));
 
                 datos.add(iterator);
                 cursor.moveToNext();

@@ -13,6 +13,7 @@
         android:layout_marginTop="64dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/TextNombre" />
@@ -24,8 +25,8 @@
         android:layout_marginTop="88dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/nombre"
         android:inputType="textPersonName"
-        android:text="@string/name"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,5 +76,15 @@
         android:text="@string/cancelar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnInicar" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="261dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:text="Inicio de Sesion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

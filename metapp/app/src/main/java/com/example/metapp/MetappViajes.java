@@ -56,6 +56,9 @@ public class MetappViajes extends AppCompatActivity {
         AdminSQLiteOpenHelpet admin = new AdminSQLiteOpenHelpet(this,"metappBD",null,1);
         SQLiteDatabase BDM = admin.getWritableDatabase();
 
+        BDM.execSQL("INSERT INTO metapp (descripcion,fecha, id_persona) VALUES ('"+descripcionV+"' , '"+dateV+"' , "+id_usuarioMU+" ) ");
+
+/*
         ContentValues content = new ContentValues();
 
         content.put("descripcion",descripcionV);
@@ -63,7 +66,7 @@ public class MetappViajes extends AppCompatActivity {
         content.put("id_persona",(Integer)id_usuarioMU);
 
         BDM.insert("metapp",null,content);
-
+*/
         BDM.close();
         Toast.makeText(this, "Metapp agregada exitosamente!", Toast.LENGTH_SHORT).show();
     }
