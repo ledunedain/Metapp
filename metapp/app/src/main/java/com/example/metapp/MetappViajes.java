@@ -57,9 +57,11 @@ public class MetappViajes extends AppCompatActivity {
         SQLiteDatabase BDM = admin.getWritableDatabase();
 
         ContentValues content = new ContentValues();
-        content.put("id_usuario",id_usuarioMU);
+
         content.put("descripcion",descripcionV);
-        content.put("date",dateV);
+        content.put("fecha",dateV);
+        content.put("id_persona",(Integer)id_usuarioMU);
+
         BDM.insert("metapp",null,content);
 
         BDM.close();

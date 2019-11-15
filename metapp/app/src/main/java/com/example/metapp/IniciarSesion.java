@@ -32,9 +32,7 @@ public class IniciarSesion extends AppCompatActivity {
 
         switch (v.getId()){
             case R.id.btnInicar:
-                /**en este se debe verificar en la base de datos los datos correctos del usuario para que inicie el otro activity, si no permanece
-                 * en este hasta que cancele o digite los datos correctos
-                 */
+
                 if(!nombre.equals("") && !contrasena.equals("") ){
                     int id_usuario=Consultar(nombre,contrasena);
 

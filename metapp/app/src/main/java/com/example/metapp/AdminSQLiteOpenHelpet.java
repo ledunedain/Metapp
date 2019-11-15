@@ -14,8 +14,8 @@ public class AdminSQLiteOpenHelpet extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase metappDB) {
 
-        metappDB.execSQL("CREATE TABLE usuario ( id_usuario INTEGER PRIMARY KEY AUTOINCREMENT , nombre text , contrasena text ) ");
-        metappDB.execSQL("CREATE TABLE metapp ( id_meta int NOT NULL PRIMARY KEY , descripcion text , fecha date , id_persona int NOT NULL, FOREIGN KEY ( id_persona ) REFERENCES usuario ( id_usuario ) )");
+        metappDB.execSQL("CREATE TABLE usuario ( id_usuario INTEGER PRIMARY KEY AUTOINCREMENT , nombre text , contrasena text ) ;");
+        metappDB.execSQL("CREATE TABLE metapp ( id_meta INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT , descripcion text , fecha text , id_persona INTEGER );");
 
     }
 
